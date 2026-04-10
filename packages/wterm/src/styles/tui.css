@@ -1,0 +1,303 @@
+/* ══════════════════════════════════════════════════════
+   Catppuccin Macchiato (default)
+   ══════════════════════════════════════════════════════ */
+:root,
+[data-theme="catppuccin"] {
+  /* palette */
+  --tui-rosewater: #f4dbd6;
+  --tui-flamingo:  #f0c6c6;
+  --tui-pink:      #f5bde6;
+  --tui-mauve:     #c6a0f6;
+  --tui-red:       #ed8796;
+  --tui-maroon:    #ee99a0;
+  --tui-peach:     #f5a97f;
+  --tui-yellow:    #eed49f;
+  --tui-green:     #a6da95;
+  --tui-teal:      #8bd5ca;
+  --tui-sky:       #91d7e3;
+  --tui-sapphire:  #7dc4e4;
+  --tui-blue:      #8aadf4;
+  --tui-lavender:  #b7bdf8;
+  --tui-text:      #cad3f5;
+  --tui-subtext1:  #b8c0e0;
+  --tui-subtext0:  #a5adcb;
+  --tui-overlay2:  #939ab7;
+  --tui-overlay1:  #8087a2;
+  --tui-overlay0:  #6e738d;
+  --tui-surface2:  #5b6078;
+  --tui-surface1:  #494d64;
+  --tui-surface0:  #363a4f;
+  --tui-base:      #24273a;
+  --tui-mantle:    #1e2030;
+  --tui-crust:     #181926;
+  /* semantic */
+  --tui-bg:        var(--tui-base);
+  --tui-fg:        var(--tui-text);
+  --tui-muted:     var(--tui-overlay1);
+  --tui-accent:    var(--tui-peach);
+  --tui-border:    var(--tui-surface1);
+  --tui-selection: var(--tui-surface0);
+  /* layout */
+  --tui-font: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --tui-radius: 0;
+  --tui-pad-x: 0.75ch;
+  --tui-pad-y: 0.25rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   Solarized Dark
+   ══════════════════════════════════════════════════════ */
+[data-theme="solarized"] {
+  --tui-rosewater: #dc322f;
+  --tui-flamingo:  #cb4b16;
+  --tui-pink:      #d33682;
+  --tui-mauve:     #6c71c4;
+  --tui-red:       #dc322f;
+  --tui-maroon:    #cb4b16;
+  --tui-peach:     #cb4b16;
+  --tui-yellow:    #b58900;
+  --tui-green:     #859900;
+  --tui-teal:      #2aa198;
+  --tui-sky:       #268bd2;
+  --tui-sapphire:  #268bd2;
+  --tui-blue:      #268bd2;
+  --tui-lavender:  #6c71c4;
+  --tui-text:      #839496;
+  --tui-subtext1:  #93a1a1;
+  --tui-subtext0:  #839496;
+  --tui-overlay2:  #657b83;
+  --tui-overlay1:  #586e75;
+  --tui-overlay0:  #073642;
+  --tui-surface2:  #073642;
+  --tui-surface1:  #073642;
+  --tui-surface0:  #002b36;
+  --tui-base:      #002b36;
+  --tui-mantle:    #001e26;
+  --tui-crust:     #00141a;
+  --tui-bg:        var(--tui-base);
+  --tui-fg:        var(--tui-text);
+  --tui-muted:     var(--tui-overlay1);
+  --tui-accent:    var(--tui-yellow);
+  --tui-border:    var(--tui-surface1);
+  --tui-selection: var(--tui-surface0);
+}
+
+/* ══════════════════════════════════════════════════════
+   Gruvbox Dark
+   ══════════════════════════════════════════════════════ */
+[data-theme="gruvbox"] {
+  --tui-rosewater: #fb4934;
+  --tui-flamingo:  #fe8019;
+  --tui-pink:      #d3869b;
+  --tui-mauve:     #d3869b;
+  --tui-red:       #fb4934;
+  --tui-maroon:    #cc241d;
+  --tui-peach:     #fe8019;
+  --tui-yellow:    #fabd2f;
+  --tui-green:     #b8bb26;
+  --tui-teal:      #8ec07c;
+  --tui-sky:       #83a598;
+  --tui-sapphire:  #83a598;
+  --tui-blue:      #83a598;
+  --tui-lavender:  #d3869b;
+  --tui-text:      #ebdbb2;
+  --tui-subtext1:  #d5c4a1;
+  --tui-subtext0:  #bdae93;
+  --tui-overlay2:  #a89984;
+  --tui-overlay1:  #928374;
+  --tui-overlay0:  #7c6f64;
+  --tui-surface2:  #504945;
+  --tui-surface1:  #3c3836;
+  --tui-surface0:  #32302f;
+  --tui-base:      #282828;
+  --tui-mantle:    #1d2021;
+  --tui-crust:     #1b1b1b;
+  --tui-bg:        var(--tui-base);
+  --tui-fg:        var(--tui-text);
+  --tui-muted:     var(--tui-overlay1);
+  --tui-accent:    var(--tui-yellow);
+  --tui-border:    var(--tui-surface1);
+  --tui-selection: var(--tui-surface0);
+}
+
+/* ══════════════════════════════════════════════════════
+   Dracula
+   ══════════════════════════════════════════════════════ */
+[data-theme="dracula"] {
+  --tui-rosewater: #ff5555;
+  --tui-flamingo:  #ffb86c;
+  --tui-pink:      #ff79c6;
+  --tui-mauve:     #bd93f9;
+  --tui-red:       #ff5555;
+  --tui-maroon:    #ff6e6e;
+  --tui-peach:     #ffb86c;
+  --tui-yellow:    #f1fa8c;
+  --tui-green:     #50fa7b;
+  --tui-teal:      #8be9fd;
+  --tui-sky:       #8be9fd;
+  --tui-sapphire:  #8be9fd;
+  --tui-blue:      #6272a4;
+  --tui-lavender:  #bd93f9;
+  --tui-text:      #f8f8f2;
+  --tui-subtext1:  #e2e2dc;
+  --tui-subtext0:  #bfbfb9;
+  --tui-overlay2:  #a4a4a0;
+  --tui-overlay1:  #7e7e7e;
+  --tui-overlay0:  #6272a4;
+  --tui-surface2:  #44475a;
+  --tui-surface1:  #383a4c;
+  --tui-surface0:  #2e303e;
+  --tui-base:      #282a36;
+  --tui-mantle:    #21222c;
+  --tui-crust:     #191a21;
+  --tui-bg:        var(--tui-base);
+  --tui-fg:        var(--tui-text);
+  --tui-muted:     var(--tui-overlay0);
+  --tui-accent:    var(--tui-pink);
+  --tui-border:    var(--tui-surface1);
+  --tui-selection: var(--tui-surface0);
+}
+
+.tui {
+  font-family: var(--tui-font);
+  color: var(--tui-fg);
+  background: var(--tui-bg);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tui ::selection { background: var(--tui-selection); }
+
+/* generic box with single-border */
+.tui-box {
+  border: 1px solid var(--tui-border);
+  border-radius: var(--tui-radius);
+  padding: var(--tui-pad-y) var(--tui-pad-x);
+  background: var(--tui-bg);
+  position: relative;
+}
+.tui-box[data-double="true"] { border-style: double; }
+.tui-box-title {
+  position: absolute;
+  top: -0.7em;
+  left: 1ch;
+  background: var(--tui-bg);
+  padding: 0 0.5ch;
+  color: var(--tui-accent);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* focusable base */
+.tui-focusable {
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 1px solid var(--tui-border);
+  padding: var(--tui-pad-y) var(--tui-pad-x);
+  display: inline-block;
+}
+.tui-focusable:focus-visible,
+.tui-focusable[data-focused="true"] {
+  background: var(--tui-selection);
+  border-color: var(--tui-accent);
+  color: var(--tui-accent);
+}
+.tui-focusable[aria-disabled="true"] {
+  color: var(--tui-muted);
+  cursor: not-allowed;
+}
+
+/* button */
+.tui-button::before { content: "[ "; }
+.tui-button::after  { content: " ]"; }
+
+/* input */
+.tui-input {
+  border: 1px solid var(--tui-border);
+  background: var(--tui-bg);
+  color: var(--tui-fg);
+  font: inherit;
+  padding: var(--tui-pad-y) var(--tui-pad-x);
+  width: 100%;
+}
+.tui-input:focus { outline: none; border-color: var(--tui-accent); }
+
+/* check / radio */
+.tui-check, .tui-radio { display: inline-flex; gap: 0.5ch; align-items: center; }
+.tui-check-mark::before { content: "[ ]"; }
+.tui-check[data-checked="true"] .tui-check-mark::before { content: "[x]"; color: var(--tui-accent); }
+.tui-radio-mark::before { content: "( )"; }
+.tui-radio[data-checked="true"] .tui-radio-mark::before { content: "(*)"; color: var(--tui-accent); }
+
+/* list / menu */
+.tui-list { display: flex; flex-direction: column; }
+.tui-list-item {
+  border: none;
+  padding: 0 var(--tui-pad-x);
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.tui-list-item::before { content: "  "; }
+.tui-list-item[data-focused="true"]::before,
+.tui-list-item[aria-selected="true"]::before { content: "> "; }
+.tui-list-item[aria-selected="true"] { color: var(--tui-accent); }
+
+/* tabs */
+.tui-tabs { display: flex; gap: 1ch; border-bottom: 1px solid var(--tui-border); }
+.tui-tab { border: none; padding: var(--tui-pad-y) var(--tui-pad-x); }
+.tui-tab[aria-selected="true"] { color: var(--tui-accent); border-bottom: 1px solid var(--tui-accent); margin-bottom: -1px; }
+
+/* progress */
+.tui-progress { display: inline-block; white-space: pre; color: var(--tui-accent); }
+
+/* spinner */
+.tui-spinner { display: inline-block; color: var(--tui-accent); }
+
+/* table */
+.tui-table { border-collapse: collapse; font-family: var(--tui-font); }
+.tui-table th, .tui-table td { border: 1px solid var(--tui-border); padding: 0 var(--tui-pad-x); text-align: left; }
+.tui-table th { color: var(--tui-accent); }
+
+/* dialog */
+.tui-dialog-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: grid; place-items: center; z-index: 50;
+}
+.tui-dialog { min-width: 40ch; max-width: 80ch; }
+
+/* status bar */
+.tui-statusbar {
+  display: flex; gap: 2ch; padding: 0 var(--tui-pad-x);
+  background: var(--tui-mantle, var(--tui-selection)); color: var(--tui-fg);
+  border-top: 1px solid var(--tui-border);
+}
+
+/* command palette (cmdk) */
+.tui-cmdk-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: grid; place-items: start center; padding-top: 10vh; z-index: 100;
+}
+.tui-cmdk {
+  width: min(60ch, 90vw);
+  background: var(--tui-bg);
+  border: 1px solid var(--tui-accent);
+  font-family: var(--tui-font);
+  color: var(--tui-fg);
+}
+.tui-cmdk [cmdk-input] {
+  width: 100%; background: transparent; color: var(--tui-fg);
+  border: none; border-bottom: 1px solid var(--tui-border);
+  padding: var(--tui-pad-y) var(--tui-pad-x); font: inherit; outline: none;
+}
+.tui-cmdk [cmdk-item] {
+  padding: 0 var(--tui-pad-x); cursor: pointer;
+}
+.tui-cmdk [cmdk-item]::before { content: "  "; }
+.tui-cmdk [cmdk-item][data-selected="true"]::before { content: "> "; }
+.tui-cmdk [cmdk-item][data-selected="true"] { color: var(--tui-accent); background: var(--tui-selection); }
+.tui-cmdk [cmdk-empty] { padding: var(--tui-pad-y) var(--tui-pad-x); color: var(--tui-muted); }

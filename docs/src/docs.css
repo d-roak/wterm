@@ -1,0 +1,143 @@
+html, body, #root { margin: 0; padding: 0; min-height: 100%; background: var(--tui-bg); }
+body { font-family: var(--tui-font); color: var(--tui-fg); }
+
+.docs-shell { display: grid; grid-template-columns: 28ch 1fr; min-height: 100vh; }
+.docs-side { border-right: 1px solid var(--tui-border); padding: 1rem; }
+.docs-side h1 { font-size: 1rem; color: var(--tui-accent); margin: 0 0 1rem; }
+.docs-side a { display: block; color: var(--tui-fg); text-decoration: none; padding: 0.1rem 0 0.1rem 1ch; }
+.docs-side a:hover { color: var(--tui-accent); }
+.docs-side a::before { content: "· "; color: var(--tui-muted); }
+.docs-side a[aria-current="page"] { color: var(--tui-accent); }
+.docs-side a[aria-current="page"]::before { content: "> "; color: var(--tui-accent); }
+.docs-breadcrumb {
+  color: var(--tui-muted);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.docs-nav-group { margin-bottom: 1rem; }
+.docs-nav-heading {
+  color: var(--tui-accent);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  margin: 0.25rem 0;
+  border-bottom: 1px solid var(--tui-border);
+}
+.docs-group-heading { margin-top: 2.5rem; }
+.docs-group-heading h2 { margin-bottom: 0.25rem; }
+
+.docs-main { padding: 2rem 3rem; max-width: 90ch; }
+.docs-main h2 { color: var(--tui-accent); border-bottom: 1px solid var(--tui-border); padding-bottom: 0.25rem; }
+.docs-main h3 { color: var(--tui-accent); margin-top: 2rem; }
+.docs-main p  { color: var(--tui-fg); }
+
+.docs-section { margin: 2rem 0 3rem; }
+.docs-showcase { padding: 1rem; }
+.docs-code {
+  background: var(--tui-mantle, var(--tui-bg)); color: var(--tui-fg); border: none;
+  padding: 0.75rem 1ch; overflow-x: auto; white-space: pre; font-family: var(--tui-font);
+  margin: 0;
+}
+
+/* showcase card */
+.docs-showcase-card {
+  border: 1px solid var(--tui-border);
+  margin: 0.5rem 0 1rem;
+}
+.docs-showcase-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--tui-border);
+  background: var(--tui-mantle);
+}
+.docs-showcase-tab {
+  background: none; border: none; color: var(--tui-muted);
+  font: inherit; padding: 0.25rem 1.5ch; cursor: pointer;
+}
+.docs-showcase-tab:hover { color: var(--tui-fg); }
+.docs-showcase-tab.active {
+  color: var(--tui-accent);
+  border-bottom: 1px solid var(--tui-accent);
+  margin-bottom: -1px;
+}
+.docs-code-panel { background: var(--tui-mantle); }
+
+/* syntax highlighting */
+.hl-kw   { color: var(--tui-mauve); }
+.hl-str  { color: var(--tui-green); }
+.hl-num  { color: var(--tui-peach); }
+.hl-tag  { color: var(--tui-blue); }
+.hl-html { color: var(--tui-teal); }
+.hl-prop { color: var(--tui-sky); }
+.hl-fn   { color: var(--tui-yellow); }
+.hl-cmt  { color: var(--tui-overlay1); font-style: italic; }
+.hl-punc { color: var(--tui-overlay2); }
+.docs-hint { color: var(--tui-muted); font-size: 0.85em; }
+
+.docs-palette {
+  display: flex; flex-direction: column; gap: 0.25rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.docs-swatch-row {
+  display: flex; align-items: center; gap: 1ch;
+}
+.docs-swatch {
+  display: inline-block; width: 3ch; height: 1.4em;
+  border: 1px solid var(--tui-border);
+}
+.docs-main h4 {
+  color: var(--tui-fg); margin: 1.5rem 0 0.25rem;
+  border-bottom: 1px dashed var(--tui-border);
+  padding-bottom: 0.15rem;
+}
+
+/* terminal preview */
+.docs-terminal {
+  border: 1px solid var(--tui-border);
+  font-family: var(--tui-font);
+  font-size: 13px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+.docs-terminal-titlebar {
+  background: var(--tui-mantle);
+  padding: 0.2rem var(--tui-pad-x);
+  border-bottom: 1px solid var(--tui-border);
+  display: flex; align-items: center; gap: 0.5ch;
+}
+.docs-terminal-title {
+  margin-left: auto;
+  color: var(--tui-muted);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.docs-terminal-body {
+  background: var(--tui-bg);
+  color: var(--tui-fg);
+  padding: 0.5rem var(--tui-pad-x);
+  min-height: 10rem;
+}
+.docs-terminal-statusbar {
+  display: flex; gap: 2ch;
+  margin-top: 0.5rem;
+  padding: 0.1rem var(--tui-pad-x);
+  background: var(--tui-mantle);
+  border-top: 1px solid var(--tui-border);
+  margin-left: calc(-1 * var(--tui-pad-x));
+  margin-right: calc(-1 * var(--tui-pad-x));
+  margin-bottom: calc(-0.5rem);
+}
+.docs-theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.docs-palette-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2ch;
+  margin: 0.5rem 0 1.5rem;
+}
