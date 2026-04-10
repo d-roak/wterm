@@ -257,7 +257,7 @@ function TerminalPreview({ themeId }: { themeId: string }) {
         <div>
           <span style={{ color: "var(--tui-green)" }}>OK</span>
           <span style={{ color: "var(--tui-fg)" }}> deployed to </span>
-          <span style={{ color: "var(--tui-sapphire)", textDecoration: "underline" }}>https://wterm.dev</span>
+          <span style={{ color: "var(--tui-sapphire)", textDecoration: "underline" }}>https://wterm.droak.sh</span>
         </div>
         <div className="docs-terminal-statusbar">
           <span>main</span>
