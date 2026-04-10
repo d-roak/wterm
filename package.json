@@ -6,6 +6,11 @@
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm --filter docs dev",
-    "docs:build": "pnpm --filter docs build"
+    "docs:build": "pnpm --filter docs build",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.6",
+    "release-it": "^19.2.4"
   }
 }
