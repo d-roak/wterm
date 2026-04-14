@@ -7,5 +7,8 @@
     "release": true,
     "releaseName": "v${version}"
   },
-  "npm": false
+  "npm": false,
+  "hooks": {
+    "after:bump": "npm pkg set version=${version} --prefix packages/wterm"
+  }
 }

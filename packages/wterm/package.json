@@ -1,6 +1,6 @@
 {
   "name": "@droak/wterm",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "type": "module",
   "main": "./dist/wterm.js",
   "module": "./dist/wterm.js",
@@ -12,7 +12,11 @@
     },
     "./styles.css": "./dist/style.css"
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "license": "MIT",
   "homepage": "https://wterm.droak.sh",
   "repository": {
@@ -20,7 +24,9 @@
     "url": "https://github.com/d-roak/wterm"
   },
   "description": "TUI components for React. Monospace, box-drawing, keyboard-first — with mouse support.",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "prebuild": "cp ../../README.md . && cp ../../LICENSE .",
     "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly --outDir dist",
