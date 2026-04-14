@@ -18,6 +18,9 @@ export { ProgressBar } from "./components/ProgressBar";
 export { Spinner } from "./components/Spinner";
 export { Table } from "./components/Table";
 export { StatusBar } from "./components/StatusBar";
+export { CodeBlock } from "./components/CodeBlock";
+
+export { highlight, detectLang } from "./highlight";
 
 export type { BoxProps } from "./components/Box";
 export type { ButtonProps } from "./components/Button";
@@ -33,3 +36,5 @@ export type { ModalProps, UseModalReturn } from "./components/Modal";
 export type { ProgressBarProps } from "./components/ProgressBar";
 export type { TableProps, Column } from "./components/Table";
 export type { StatusBarProps } from "./components/StatusBar";
+export type { CodeBlockProps } from "./components/CodeBlock";
+export type { Lang } from "./highlight";

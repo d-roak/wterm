@@ -35,7 +35,7 @@ webtui/
 
 ## Components (v0)
 Box, Button, Input, Checkbox, Radio, Select, List, Menu, Tabs, Dialog,
-ProgressBar, Spinner, Table, StatusBar.
+ProgressBar, Spinner, Table, StatusBar, CodeBlock.
 
 Every interactive component uses `useFocusable` so it appears in the palette
 (⌘K) and responds to clicks identically.

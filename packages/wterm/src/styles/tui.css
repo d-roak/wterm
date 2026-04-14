@@ -315,6 +315,29 @@
   border-top: 1px solid var(--tui-border);
 }
 
+/* codeblock */
+.tui-codeblock {
+  background: var(--tui-mantle);
+  border: 1px solid var(--tui-border);
+  padding: var(--tui-pad-y) var(--tui-pad-x);
+  overflow-x: auto;
+  white-space: pre;
+  font-family: var(--tui-font);
+  margin: 0;
+}
+
+/* syntax highlight tokens */
+.hl-kw   { color: var(--tui-mauve); }
+.hl-str  { color: var(--tui-green); }
+.hl-num  { color: var(--tui-peach); }
+.hl-tag  { color: var(--tui-blue); }
+.hl-html { color: var(--tui-teal); }
+.hl-prop { color: var(--tui-sky); }
+.hl-fn   { color: var(--tui-yellow); }
+.hl-sky  { color: var(--tui-sky); }
+.hl-cmt  { color: var(--tui-overlay1); font-style: italic; }
+.hl-punc { color: var(--tui-overlay2); }
+
 /* command palette (cmdk) */
 .tui-cmdk-backdrop {
   position: fixed; inset: 0; background: rgba(0,0,0,0.6);
