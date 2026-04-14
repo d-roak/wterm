@@ -172,7 +172,7 @@
 .tui-box {
   border: 1px solid var(--tui-border);
   border-radius: var(--tui-radius);
-  padding: var(--tui-pad-y) var(--tui-pad-x);
+  padding: calc(var(--tui-pad-y) * 3) calc(var(--tui-pad-x) * 2);
   background: var(--tui-bg);
   position: relative;
 }
@@ -269,6 +269,7 @@
   display: grid; place-items: center; z-index: 50;
 }
 .tui-dialog { min-width: 40ch; max-width: 80ch; }
+.tui-dialog .tui-box { padding: calc(var(--tui-pad-y) * 4) calc(var(--tui-pad-x) * 3); }
 
 /* status bar */
 .tui-statusbar {
