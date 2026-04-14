@@ -168,6 +168,43 @@
 
 .tui ::selection { background: var(--tui-selection); }
 
+/* base elements */
+.tui a { color: var(--tui-blue); text-decoration: underline; text-underline-offset: 0.15em; }
+.tui a:hover { color: var(--tui-sapphire); }
+.tui a:visited { color: var(--tui-lavender); }
+
+.tui h1, .tui h2, .tui h3, .tui h4, .tui h5, .tui h6 { color: var(--tui-accent); }
+.tui strong, .tui b { color: var(--tui-yellow); }
+.tui em, .tui i { color: var(--tui-pink); font-style: italic; }
+
+.tui code {
+  background: var(--tui-surface0);
+  color: var(--tui-green);
+  padding: 0.1em 0.4ch;
+}
+.tui pre {
+  background: var(--tui-mantle);
+  border: 1px solid var(--tui-border);
+  padding: var(--tui-pad-y) var(--tui-pad-x);
+  overflow-x: auto;
+}
+.tui pre code { background: none; padding: 0; }
+
+.tui blockquote {
+  border-left: 2px solid var(--tui-accent);
+  padding-left: var(--tui-pad-x);
+  color: var(--tui-subtext0);
+}
+.tui hr { border: none; border-top: 1px solid var(--tui-border); }
+.tui mark { background: var(--tui-yellow); color: var(--tui-crust); }
+.tui kbd {
+  background: var(--tui-surface1);
+  border: 1px solid var(--tui-surface2);
+  color: var(--tui-text);
+  padding: 0.1em 0.4ch;
+  font: inherit;
+}
+
 /* generic box with single-border */
 .tui-box {
   border: 1px solid var(--tui-border);
