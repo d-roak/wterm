@@ -12,9 +12,17 @@
     },
     "./styles.css": "./dist/style.css"
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md", "LICENSE"],
+  "license": "MIT",
+  "homepage": "https://wterm.droak.sh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d-roak/wterm"
+  },
+  "description": "TUI components for React. Monospace, box-drawing, keyboard-first — with mouse support.",
   "sideEffects": ["*.css"],
   "scripts": {
+    "prebuild": "cp ../../README.md . && cp ../../LICENSE .",
     "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly --outDir dist",
     "test": "vitest run",
     "test:watch": "vitest"
