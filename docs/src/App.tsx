@@ -3,6 +3,7 @@ import {
   NavProvider,
   Box, Button, Input, Checkbox, Radio, Select, List, Menu,
   Tabs, Dialog, Modal, useModal, ProgressBar, Spinner, Table, StatusBar,
+  CodeBlock,
 } from "@droak/wterm";
 
 type ComponentSection = {
@@ -75,93 +76,13 @@ function ShowcaseCard({ preview, code }: { preview: React.ReactNode; code: strin
         <div className="docs-showcase">{preview}</div>
       ) : (
         <div className="docs-code-panel">
-          <CodeBlock code={code} />
+          <CodeBlock code={code} lang="js" />
         </div>
       )}
     </div>
   );
 }
 
-function CodeBlock({ code }: { code: string }) {
-  return (
-    <pre className="docs-code">
-      <code dangerouslySetInnerHTML={{ __html: highlightJsx(code) }} />
-    </pre>
-  );
-}
-
-const KW = new Set([
-  "import","from","export","const","let","var","function","return",
-  "default","if","else","new","typeof","type","interface",
-]);
-const LIT = new Set(["true","false","null","undefined"]);
-
-function esc(s: string) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-function span(cls: string, text: string) {
-  return `<span class="${cls}">${esc(text)}</span>`;
-}
-
-function highlightJsx(src: string): string {
-  // Tokenize with a single pass regex — order of alternations matters.
-  const re =
-    /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`)|(<\/?[A-Z]\w*|<\/?[a-z]\w*)|(\b\d+(?:\.\d+)?\b)|(\b[a-zA-Z_$]\w*\b)|(\/?>)|([{}()[\],;:.])|(\n)|(.)/g;
-
-  let out = "";
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(src)) !== null) {
-    const [
-      full,
-      comment,
-      str,
-      tag,
-      num,
-      word,
-      closeTag,
-      punc,
-      nl,
-      _,
-    ] = m;
-    if (comment) {
-      out += span("hl-cmt", comment);
-    } else if (str) {
-      out += span("hl-str", str);
-    } else if (tag) {
-      // split into angle-bracket part and name
-      const bracket = tag.match(/^(<\/?)(.+)$/)!;
-      const isComponent = /^[A-Z]/.test(bracket[2]);
-      out += esc(bracket[1]) + span(isComponent ? "hl-tag" : "hl-html", bracket[2]);
-    } else if (num) {
-      out += span("hl-num", num);
-    } else if (word) {
-      if (KW.has(word)) {
-        out += span("hl-kw", word);
-      } else if (LIT.has(word)) {
-        out += span("hl-num", word);
-      } else {
-        // Check if next non-space char is '=' (JSX prop) or '(' (function call)
-        const rest = src.slice(re.lastIndex);
-        if (/^\s*=(?!=)/.test(rest)) {
-          out += span("hl-prop", word);
-        } else if (/^\s*\(/.test(rest)) {
-          out += span("hl-fn", word);
-        } else {
-          out += esc(word);
-        }
-      }
-    } else if (closeTag) {
-      out += span("hl-punc", closeTag);
-    } else if (punc) {
-      out += span("hl-punc", punc);
-    } else if (nl) {
-      out += "\n";
-    } else {
-      out += esc(full);
-    }
-  }
-  return out;
-}
 
 function ThemePalette({ colors }: { colors: { name: string; hex: string }[] }) {
   return (
@@ -318,14 +239,14 @@ export function App() {
       body: (
         <>
           <p>Install the package and its peer dependencies:</p>
-          <pre className="docs-code">{`pnpm add @droak/wterm react react-dom cmdk`}</pre>
+          <CodeBlock code={`pnpm add @droak/wterm react react-dom cmdk`} lang="shell" />
           <p>Import the stylesheet once at the root of your app:</p>
-          <pre className="docs-code">{`import "@droak/wterm/styles.css";`}</pre>
+          <CodeBlock code={`import "@droak/wterm/styles.css";`} />
           <p>
             Wrap your tree in <code>NavProvider</code> so the command palette
             (⌘K) and focus registry work:
           </p>
-          <pre className="docs-code">{`import { NavProvider, Button } from "@droak/wterm";
+          <CodeBlock code={`import { NavProvider, Button } from "@droak/wterm";
 
 export function App() {
   return (
@@ -333,7 +254,7 @@ export function App() {
       <Button label="Save" onSelect={() => console.log("saved")} />
     </NavProvider>
   );
-}`}</pre>
+}`} />
           <p>
             Press <strong>⌘K</strong> (or <strong>Ctrl+K</strong>) anywhere in
             your app to search and run any registered action.
@@ -354,7 +275,7 @@ export function App() {
             by CSS custom properties. Override them on <code>:root</code> or scope
             to any subtree using the <code>data-theme</code> attribute:
           </p>
-          <pre className="docs-code">{`/* Override semantic vars globally */
+          <CodeBlock code={`/* Override semantic vars globally */
 :root {
   --tui-bg:        var(--tui-base);
   --tui-fg:        var(--tui-text);
@@ -362,12 +283,11 @@ export function App() {
   --tui-muted:     var(--tui-overlay1);
   --tui-border:    var(--tui-surface1);
   --tui-selection: var(--tui-surface0);
-}
-
-/* Or switch theme on any subtree */
+}`} lang="css" />
+          <CodeBlock code={`<!-- Or switch theme on any subtree -->
 <div data-theme="dracula">
   <Box>This region uses Dracula</Box>
-</div>`}</pre>
+</div>`} lang="html" />
           <h4>Available variables</h4>
           <Table
             columns={[
@@ -401,9 +321,9 @@ export function App() {
             any container (typically the root <code>.tui</code> div) to switch.
             The default is <strong>Catppuccin</strong> (Macchiato).
           </p>
-          <pre className="docs-code">{`<div className="tui" data-theme="dracula">
+          <CodeBlock code={`<div className="tui" data-theme="dracula">
   ...
-</div>`}</pre>
+</div>`} lang="html" />
           <p>Select a theme to preview it in the simulated terminal below:</p>
           <div style={{ display: "flex", gap: "1ch", flexWrap: "wrap", margin: "0.5rem 0 1.5rem" }}>
             {THEMES.map((t) => (
@@ -417,14 +337,6 @@ export function App() {
           </div>
 
           <TerminalPreview themeId={previewTheme} />
-
-          <h4>Side by side</h4>
-          <p className="docs-hint">All four themes at a glance:</p>
-          <div className="docs-theme-grid">
-            {THEMES.map((t) => (
-              <TerminalPreview key={t.id} themeId={t.id} />
-            ))}
-          </div>
 
           <h4>Catppuccin (Macchiato) palette</h4>
           <p className="docs-hint">Default. All named colors are available as <code>--tui-*</code> CSS variables.</p>
@@ -471,11 +383,11 @@ export function App() {
             colors (<code>--tui-red</code>, <code>--tui-green</code>, etc.)
             directly in your own components for consistent theming:
           </p>
-          <pre className="docs-code">{`.my-error  { color: var(--tui-red); }
+          <CodeBlock code={`.my-error  { color: var(--tui-red); }
 .my-ok     { color: var(--tui-green); }
 .my-warn   { color: var(--tui-yellow); }
 .my-link   { color: var(--tui-blue); }
-.my-subtle { color: var(--tui-overlay1); }`}</pre>
+.my-subtle { color: var(--tui-overlay1); }`} lang="css" />
         </>
       ),
     },
@@ -490,14 +402,14 @@ export function App() {
             <em> do</em> want motion, layer it on with plain CSS transitions
             targeting the library's classes:
           </p>
-          <pre className="docs-code">{`.tui-focusable { transition: background 80ms steps(2); }
+          <CodeBlock code={`.tui-focusable { transition: background 80ms steps(2); }
 .tui-dialog-backdrop { animation: flicker 120ms steps(2) both; }
 
 @keyframes flicker {
   0%   { opacity: 0; }
   50%  { opacity: 0.4; }
   100% { opacity: 1; }
-}`}</pre>
+}`} lang="css" />
           <p>
             The built-in <code>Spinner</code> is the only component that
             animates, using a braille frame cycle driven by{" "}
@@ -516,25 +428,25 @@ export function App() {
             is nothing more than a <code>Box</code> wrapping a <code>List</code>{" "}
             — you can build the same thing yourself and get identical behavior.
           </p>
-          <pre className="docs-code">{`<Box title="File" double>
+          <CodeBlock code={`<Box title="File" double>
   <List
     items={items}
     group="File"
     onSelect={(id) => actions[id]()}
   />
-</Box>`}</pre>
+</Box>`} />
           <p>
             Building your own interactive primitive? Use{" "}
             <code>useFocusable</code> directly. It returns props you spread onto
             any element. The element is automatically registered with the
             palette and handles click + Enter/Space.
           </p>
-          <pre className="docs-code">{`import { useFocusable } from "@droak/wterm";
+          <CodeBlock code={`import { useFocusable } from "@droak/wterm";
 
 function Tile({ label, onOpen }) {
   const f = useFocusable({ label, onSelect: onOpen, group: "Tiles" });
   return <div {...f} className={\`\${f.className} my-tile\`}>{label}</div>;
-}`}</pre>
+}`} />
         </>
       ),
     },
@@ -567,7 +479,7 @@ function Tile({ label, onOpen }) {
           <p>
             Next.js example:
           </p>
-          <pre className="docs-code">{`// app/layout.tsx
+          <CodeBlock code={`// app/layout.tsx
 import "@droak/wterm/styles.css";
 import { NavProvider } from "@droak/wterm";
 
@@ -579,7 +491,7 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}`}</pre>
+}`} />
         </>
       ),
     },

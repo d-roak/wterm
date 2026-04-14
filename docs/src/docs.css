@@ -35,11 +35,6 @@ body { font-family: var(--tui-font); color: var(--tui-fg); }
 
 .docs-section { margin: 2rem 0 3rem; }
 .docs-showcase { padding: 1rem; }
-.docs-code {
-  background: var(--tui-mantle, var(--tui-bg)); color: var(--tui-fg); border: none;
-  padding: 0.75rem 1ch; overflow-x: auto; white-space: pre; font-family: var(--tui-font);
-  margin: 0;
-}
 
 /* showcase card */
 .docs-showcase-card {
@@ -63,16 +58,6 @@ body { font-family: var(--tui-font); color: var(--tui-fg); }
 }
 .docs-code-panel { background: var(--tui-mantle); }
 
-/* syntax highlighting */
-.hl-kw   { color: var(--tui-mauve); }
-.hl-str  { color: var(--tui-green); }
-.hl-num  { color: var(--tui-peach); }
-.hl-tag  { color: var(--tui-blue); }
-.hl-html { color: var(--tui-teal); }
-.hl-prop { color: var(--tui-sky); }
-.hl-fn   { color: var(--tui-yellow); }
-.hl-cmt  { color: var(--tui-overlay1); font-style: italic; }
-.hl-punc { color: var(--tui-overlay2); }
 .docs-hint { color: var(--tui-muted); font-size: 0.85em; }
 
 .docs-palette {
@@ -128,12 +113,6 @@ body { font-family: var(--tui-font); color: var(--tui-fg); }
   margin-left: calc(-1 * var(--tui-pad-x));
   margin-right: calc(-1 * var(--tui-pad-x));
   margin-bottom: calc(-0.5rem);
-}
-.docs-theme-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 1rem 0;
 }
 .docs-palette-grid {
   display: grid;
