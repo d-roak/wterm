@@ -23,7 +23,14 @@
     "type": "git",
     "url": "https://github.com/d-roak/wterm"
   },
-  "description": "TUI components for React. Monospace, box-drawing, keyboard-first — with mouse support.",
+  "keywords": [
+    "tui",
+    "react",
+    "terminal-ui",
+    "command-palette",
+    "monospace"
+  ],
+  "description": "TUI components for React. Monospace, box-drawing, keyboard-first, with mouse support.",
   "sideEffects": [
     "*.css"
   ],
