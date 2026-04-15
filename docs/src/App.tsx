@@ -44,6 +44,7 @@ function useHashRoute(fallback: string) {
 
 function useDemoState() {
   const [text, setText] = React.useState("hello");
+  const [pass, setPass] = React.useState("");
   const [checked, setChecked] = React.useState(true);
   const [radio, setRadio] = React.useState<"a" | "b" | "c">("a");
   const [sel, setSel] = React.useState("md");
@@ -51,7 +52,7 @@ function useDemoState() {
   const [tab, setTab] = React.useState("overview");
   const [dialog, setDialog] = React.useState(false);
   const [progress, setProgress] = React.useState(0.4);
-  return { text, setText, checked, setChecked, radio, setRadio, sel, setSel, listSel, setListSel, tab, setTab, dialog, setDialog, progress, setProgress };
+  return { text, setText, pass, setPass, checked, setChecked, radio, setRadio, sel, setSel, listSel, setListSel, tab, setTab, dialog, setDialog, progress, setProgress };
 }
 
 function ShowcaseCard({ preview, code }: { preview: React.ReactNode; code: string }) {
@@ -533,15 +534,27 @@ function SaveButton() {
     {
       id: "input",
       name: "Input",
-      description: "Single-line text input. Controlled.",
+      description: "Single-line text input. Controlled. Supports HTML input types (text, password, email, etc.).",
       usage: `import { Input } from "@droak/wterm";
 import { useState } from "react";
 
-function NameField() {
-  const [name, setName] = useState("");
-  return <Input label="Name" value={name} onChange={setName} />;
+function LoginForm() {
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
+  return (
+    <>
+      <Input label="Username" value={user} onChange={setUser} />
+      <Input label="Password" type="password" value={pass} onChange={setPass} />
+    </>
+  );
 }`,
-      render: () => <Input label="Name" value={s.text} onChange={s.setText} />,
+      render: () => (
+        <>
+          <Input label="Name" value={s.text} onChange={s.setText} />
+          <div style={{ height: 8 }} />
+          <Input label="Password" type="password" value={s.pass} onChange={s.setPass} />
+        </>
+      ),
     },
     {
       id: "checkbox",
